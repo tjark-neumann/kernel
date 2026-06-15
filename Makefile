@@ -23,11 +23,11 @@ kernel.o: kernel.c
 $(KERNEL): $(OBJS) linker.ld
 	$(LD) $(LDFLAGS) -o $@ $(OBJS)
 
-# Boot the kernel directly in QEMU (QEMU has a built-in Multiboot loader).
+# Boot the kernel directly in QEMU
 run: $(KERNEL)
 	qemu-system-i386 -kernel $(KERNEL)
 
-# Build a bootable ISO with GRUB (needs grub-mkrescue + xorriso installed).
+# Build a bootable ISO with GRUB
 iso: $(KERNEL)
 	mkdir -p isodir/boot/grub
 	cp $(KERNEL) isodir/boot/kernel.elf
