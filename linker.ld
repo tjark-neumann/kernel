@@ -7,29 +7,29 @@ ENTRY(_start)
 
 SECTIONS
 {
-	/* Start placing sections at 1 MiB. */
+	/* start placing sections at 1 MiB */
 	. = 1M;
 
-	/* Code. .multiboot goes first so the bootloader can find the header. */
+	/* code. .multiboot goes first so the bootloader can find the header */
 	.text BLOCK(4K) : ALIGN(4K)
 	{
 		*(.multiboot)
 		*(.text)
 	}
 
-	/* Read-only data. */
+	/* read-only data */
 	.rodata BLOCK(4K) : ALIGN(4K)
 	{
 		*(.rodata)
 	}
 
-	/* Initialized read-write data. */
+	/* initialised read-write data */
 	.data BLOCK(4K) : ALIGN(4K)
 	{
 		*(.data)
 	}
 
-	/* Zero-initialized data and the stack reservation from boot.s. */
+	/* zero-initialised data and the stack reservation from boot.s */
 	.bss BLOCK(4K) : ALIGN(4K)
 	{
 		*(COMMON)
