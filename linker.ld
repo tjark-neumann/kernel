@@ -1,8 +1,6 @@
-/* linker.ld -- Tells the linker how to lay the kernel out in memory.
- *
- * The bootloader loads us at the 1 MiB mark (addresses below 1 MiB are full
- * of legacy BIOS/hardware regions). Crucially, the .multiboot section must
- * appear within the first 8 KiB of the file, so we place it first.
+/* linker.ld tells the linker how to lay the kernel out in memory.
+ * bootloader loads us at the 1 MiB mark (addresses below 1 MiB are full
+ * of legacy BIOS/hardware regions)
  */
 
 ENTRY(_start)
