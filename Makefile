@@ -1,9 +1,5 @@
-# Makefile for the minimal x86 kernel.
-#
-# Best practice is to use a dedicated cross-compiler (i686-elf-gcc) so the
-# host's libc/headers can never leak in. This Makefile uses the host gcc in
-# strict freestanding mode, which works for a kernel this small. Override CC
-# with your cross-compiler if you have one:  make CC=i686-elf-gcc
+# Makefile for a minimal x86 kernel.
+# Override CC with cross-compiler if you have one: make CC=i686-elf-gcc
 
 CC      := gcc
 LD      := ld
